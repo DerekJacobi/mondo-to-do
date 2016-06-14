@@ -3,18 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Mondo To Do App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./to-do-style.css" />
   </head>
+
   <body ng-controller="ToDoController">
-    <h1>To Do List</h1>
-    <h3>Tasks to Complete : {{count}}</h3>
-    <input ng-model="task" /><button ng-click="addTask(task)">Add Task</button>
-    <ul>
-      <li ng-repeat="task in tasks">
-        {{task}}<button ng-click="removeTask(task)">Remove Task</button>
-      </li>
-    </ul>
+
+    <div>
+      <h1><i class="fa fa-tasks" aria-hidden="true"></i> To Do List</h1>
+      <h3>Tasks to Complete : {{count}}</h3>
+    </div>
+
+    <div>
+      <input id="task-entry" ng-model="task" />
+      <button ng-click="addTask(task)">Add Task</button>
+    </div>
+
+    <div>
+      <!-- List of tasks -->
+      <ol>
+        <li ng-repeat="task in tasks">
+          <p class="task-in-list">
+            {{task}} <i class="fa fa-times delete-task" aria-hidden="true" ng-click="removeTask(task)"></i>
+          </p>
+        </li>
+      </ol>
+    </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="./angular.js"></script>
+
   </body>
+
 </html>

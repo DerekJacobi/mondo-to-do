@@ -1,0 +1,30 @@
+.task-in-list {
+  width: 200px;
+  color: lightblue;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.delete-task {
+  float: right;
+  color: red;
+}
+
+.delete-task:hover{
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: -2px;
+  margin-right: -2px;
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+#task-entry {
+  width: 200px;
+  height: 35px;
+}
