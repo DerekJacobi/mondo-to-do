@@ -4,14 +4,18 @@
 
 function ToDoController($scope){
   $scope.count = 0;
+  $scope.tasks = [];
 
   $scope.addTask = function(task){
-
+    console.log(task);
+    $scope.tasks.push(task);
     $scope.count++;
   };
 
   $scope.removeTask = function(task){
-
+    console.log(task);
+    var taskToRemove = $scope.tasks.indexOf(task);
+    $scope.tasks.splice(taskToRemove,1);
     $scope.count--;
   };
 

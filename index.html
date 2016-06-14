@@ -6,7 +6,13 @@
   </head>
   <body ng-controller="ToDoController">
     <h1>To Do List</h1>
-    {{toDo}}
+    <h3>Tasks to Complete : {{count}}</h3>
+    <input ng-model="task" /><button ng-click="addTask(task)">Add Task</button>
+    <ul>
+      <li ng-repeat="task in tasks">
+        {{task}}<button ng-click="removeTask(task)">Remove Task</button>
+      </li>
+    </ul>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
