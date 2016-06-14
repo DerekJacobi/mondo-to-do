@@ -9,6 +9,8 @@
   "author": "derek jacobi",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.6"
+    "angular": "^1.5.6",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4"
   }
 }
