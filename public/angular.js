@@ -28,6 +28,7 @@ function ToDoController($scope){
   };
 
   $scope.removeAllTasks = function(){
+    $scope.count = 0;
     $scope.tasks = [];
   };
 
