@@ -4,30 +4,42 @@
     <meta charset="utf-8">
     <title>Mondo To Do App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald|Indie+Flower' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <link rel="stylesheet" href="./to-do-style.css" />
   </head>
 
   <body ng-controller="ToDoController">
 
-    <div>
+    <div class="header-box box">
       <h1><i class="fa fa-tasks" aria-hidden="true"></i> To Do List</h1>
-      <h3>Tasks to Complete : {{count}}</h3>
+      <div>
+        <h3>Tasks to Complete : {{count}}</h3>
+      </div>
     </div>
 
-    <div>
-      <input id="task-entry" ng-model="task" />
-      <button ng-click="addTask(task)">Add Task</button>
+    <!-- show the search box if are more than one tasks on the list -->
+    <div ng-show="count !== 0"class="search-box">
+      <input type="search" placeholder="Search Tasks" ng-model="searchText">
     </div>
 
-    <div>
+    <div class="search-box">
+      <input id="task-entry" ng-model="task" placeholder="Add A New Task"/>
+      <button ng-show="task" class="btn btn-primary" ng-click="addTask(task)">Add Task</button>
+    </div>
+
+    <div class="task-box">
       <!-- List of tasks -->
-      <ol>
-        <li ng-repeat="task in tasks">
-          <p class="task-in-list">
+      <ul>
+        <li class="task-in-list" ng-repeat="task in tasks | filter: searchText ">
+          <p >
             {{task}} <i class="fa fa-times delete-task" aria-hidden="true" ng-click="removeTask(task)"></i>
           </p>
         </li>
-      </ol>
+      </ul>
     </div>
 
 
